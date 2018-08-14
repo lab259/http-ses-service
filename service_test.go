@@ -1,13 +1,13 @@
 package sqssrv
 
 import (
+	"github.com/aws/aws-sdk-go/service/ses"
 	"github.com/jamillosantos/macchiato"
 	"github.com/lab259/http"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"log"
 	"testing"
-	"github.com/aws/aws-sdk-go/service/ses"
 )
 
 func TestService(t *testing.T) {
@@ -51,9 +51,9 @@ var _ = Describe("SQSService", func() {
 		var service SESService
 		err := service.ApplyConfiguration(SESServiceConfiguration{
 			Endpoint: "endpoint",
-			Region: "region",
-			Secret: "secret",
-			Key:    "key",
+			Region:   "region",
+			Secret:   "secret",
+			Key:      "key",
 		})
 		Expect(err).To(BeNil())
 		Expect(service.Configuration.Region).To(Equal("region"))
@@ -87,7 +87,6 @@ var _ = Describe("SQSService", func() {
 			return nil
 		})).To(BeNil())
 	})
-
 
 	It("should fail try to run a command without starting the service", func() {
 		var service SESService

@@ -5,8 +5,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/lab259/http"
 	"github.com/aws/aws-sdk-go/service/ses"
+	"github.com/lab259/http"
 )
 
 // RedigoServiceConfiguration is the configuration for the `RedigoService`
