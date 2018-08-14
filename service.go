@@ -9,7 +9,7 @@ import (
 	"github.com/lab259/http"
 )
 
-// RedigoServiceConfiguration is the configuration for the `RedigoService`
+// SESServiceConfiguration is the configuration for the `SESService`
 type SESServiceConfiguration struct {
 	Endpoint string `yaml:"endpoint"`
 	Region   string `yaml:"region"`
@@ -38,14 +38,17 @@ func (*credentialsFromStruct) IsExpired() bool {
 	return false
 }
 
-// SQSService is the service which manages a service queue on the AWS.
+// SESService is the service which manages a service queue on the AWS.
 type SESService struct {
 	running       bool
 	awsSES        *ses.SES
 	Configuration SESServiceConfiguration
 }
 
-// LoadConfiguration returns
+// LoadConfiguration returns a not implemented error.
+//
+// This happens because this method should be implemented on the struct that
+// will use this implementation.
 func (service *SESService) LoadConfiguration() (interface{}, error) {
 	return nil, errors.New("not implemented")
 }
@@ -74,7 +77,7 @@ func (service *SESService) Restart() error {
 	return service.Start()
 }
 
-// Start starts the redis pool.
+// Start initializes the aws client with the configuration.
 func (service *SESService) Start() error {
 	if !service.running {
 		conf := aws.Config{
