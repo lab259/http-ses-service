@@ -1,4 +1,4 @@
-package sqssrv
+package sessrv
 
 import (
 	"github.com/aws/aws-sdk-go/service/ses"

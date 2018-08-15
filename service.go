@@ -1,4 +1,4 @@
-package sqssrv
+package sessrv
 
 import (
 	"errors"
